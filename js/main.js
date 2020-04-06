@@ -1,8 +1,16 @@
-// console.log("sup");
+let game = new Game();
 
 //p5 predef functions
-function preload() {}
+function preload() {
+  game.init();
+}
 
-function setup() {}
+function setup() {
+  //setting up the canvas for the game and adding it to canvas element of html
+  let canvas = createCanvas(1280, 720);
+  canvas.parent("canvas");
+}
 
-function draw() {}
+function draw() {
+  game.display();
+}
