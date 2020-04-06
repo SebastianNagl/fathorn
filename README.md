@@ -10,6 +10,8 @@ to do:
 
 (+) implement git and link to github
 
+(+) download p5 min and connect to html
+
 (-) implement canvas
 
 (-) set moving background
