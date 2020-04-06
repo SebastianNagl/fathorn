@@ -12,11 +12,11 @@ to do:
 
 (+) download p5 min and connect to html
 
-(-) implement canvas
+(+) implement canvas
 
-(-) set moving background
+(+) set moving background
 
-(-) create moving unicorn
+(+) create moving unicorn
 
 (-) create enemies at random
 
