@@ -6,9 +6,9 @@ unicorn will shoot lasers to kill and collect cupcakes and martinis to increase 
 
 to do:
 
-(-) create file structure
+(+) create file structure
 
-(-) implement git and link to github
+(+) implement git and link to github
 
 (-) implement canvas
 
