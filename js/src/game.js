@@ -1,7 +1,5 @@
 class Game {
-  constructor() {
-    console.log("sup");
-  }
+  constructor() {}
 
   init() {
     this.background = new Background();
