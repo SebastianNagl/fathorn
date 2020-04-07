@@ -11,6 +11,8 @@ class Game {
 
   setup() {
     this.player.setup();
+    score = 0;
+    hp = 5;
   }
 
   display() {
@@ -29,14 +31,18 @@ class Game {
         this.player.y + this.player.height > enemy.y &&
         this.player.y < enemy.y + enemy.height
       ) {
-        //logic to punish player
-        console.log("collision bra!");
+        hp--;
+        return true;
       }
     };
 
     this.enemies.forEach((enemy) => {
       collide(enemy);
       enemy.display();
+    });
+
+    this.enemies = this.enemies.filter((enemy) => {
+      return !collide(enemy);
     });
   }
 }

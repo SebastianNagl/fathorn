@@ -1,11 +1,12 @@
 let game = new Game();
 let hp = 5;
 let score = 0;
-let playing = true;
+let playing = false;
 
 //p5 predef functions
 function preload() {
   game.init();
+  imgN = loadImage("img/fathorn.png");
 }
 
 function setup() {
@@ -17,7 +18,15 @@ function setup() {
 }
 
 function draw() {
+  //screen when new / game over
+  if (!playing) {
+    document.getElementById("game").style.visibility = "hidden";
+    image(imgN, 0, 0);
+  }
+
+  //game on
   if (playing) {
+    document.getElementById("game").style.visibility = "visible";
     clear();
 
     //show elements of canvas
@@ -45,5 +54,17 @@ function draw() {
     //update score and hp
     document.getElementById("score").innerHTML = score;
     document.getElementById("hp").innerHTML = hp;
+  }
+
+  //check for game over
+  if (hp <= 0) {
+    playing = false;
+    game.setup();
+  }
+}
+
+function keyPressed() {
+  if (keyCode === 13) {
+    playing = true;
   }
 }
