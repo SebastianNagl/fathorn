@@ -1,5 +1,8 @@
 class Game {
   constructor() {
+    this.speed = 1;
+    this.hp = 5;
+    this.score = 0;
     this.enemies = [];
   }
 
@@ -11,16 +14,23 @@ class Game {
 
   setup() {
     this.player.setup();
-    score = 0;
-    hp = 5;
+    this.score = 0;
+    this.hp = 5;
+    this.speed = 1;
   }
 
   display() {
     this.background.display();
     this.player.display();
 
-    if (frameCount % 120 === 0) {
+    if (frameCount % 60 === 0) {
       this.enemies.push(new Enemy());
+    }
+
+    //increase score over time
+    if ((frameCount % 50) / game.speed ** 2 === 0) {
+      this.score += 1 + Math.floor(this.speed);
+      this.speed += 0.05;
     }
 
     //logic for checking collisions
@@ -31,7 +41,10 @@ class Game {
         this.player.y + this.player.height > enemy.y &&
         this.player.y < enemy.y + enemy.height
       ) {
-        hp--;
+        console.log("boom!");
+
+        //logic to only receive 1 hit
+        this.hp--;
         return true;
       }
     };

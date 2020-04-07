@@ -34,30 +34,25 @@ function draw() {
 
     //movement on key presses
     if (keyIsDown(DOWN_ARROW)) {
-      game.player.y += 5;
+      game.player.y += 8;
     }
     if (keyIsDown(UP_ARROW)) {
-      game.player.y -= 5;
+      game.player.y -= 8;
     }
     if (keyIsDown(LEFT_ARROW)) {
-      game.player.x -= 5;
+      game.player.x -= 8;
     }
     if (keyIsDown(RIGHT_ARROW)) {
-      game.player.x += 5;
-    }
-
-    //increase score over time
-    if (frameCount % 50 === 0) {
-      score++;
+      game.player.x += 8;
     }
 
     //update score and hp
-    document.getElementById("score").innerHTML = score;
-    document.getElementById("hp").innerHTML = hp;
+    document.getElementById("score").innerHTML = game.score;
+    document.getElementById("hp").innerHTML = game.hp;
   }
 
   //check for game over
-  if (hp <= 0) {
+  if (game.hp <= 0) {
     playing = false;
     game.setup();
   }

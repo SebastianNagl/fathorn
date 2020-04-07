@@ -7,7 +7,7 @@ class Background {
     image(this.img.src, this.img.x, 0);
     image(this.img.src, this.img.x + width, 0);
 
-    this.img.x -= 4;
+    this.img.x -= 4 * game.speed;
 
     if (this.img.x <= -width) {
       this.img.x = 0;

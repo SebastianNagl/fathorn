@@ -2,7 +2,12 @@
   background-color: black;
   color: white;
   text-align: center;
-  margin: 2%;
+  margin: 3%;
+}
+
+span {
+  /* margin-left: 5vh; */
+  margin-right: 25vh;
 }
 
 h1 {

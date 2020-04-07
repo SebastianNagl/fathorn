@@ -8,7 +8,7 @@ class Player {
   setup() {
     this.height = this.img.height;
     this.width = this.img.width;
-    this.x = 80;
+    this.x = 90;
     this.y = (height - this.height) / 2;
   }
 
@@ -28,6 +28,6 @@ class Player {
     }
 
     //display player img
-    image(this.img, this.x, this.y);
+    image(this.img, this.x, this.y, 90, 90);
   }
 }
