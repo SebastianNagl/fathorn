@@ -3,6 +3,7 @@ class Game {
     this.speed = 1;
     this.hp = 5;
     this.score = 0;
+    this.highscore = 0;
     this.enemies = [];
   }
 
@@ -31,6 +32,10 @@ class Game {
     if ((frameCount % 50) / game.speed ** 2 === 0) {
       this.score += 1 + Math.floor(this.speed);
       this.speed += 0.05;
+    }
+
+    if (this.score > this.highscore) {
+      this.highscore = this.score;
     }
 
     //logic for checking collisions

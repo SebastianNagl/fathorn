@@ -45,15 +45,10 @@ function draw() {
       game.player.x += 8;
     }
 
-    //update score and hp
+    //update score hp highscore
     document.getElementById("score").innerHTML = game.score;
     document.getElementById("hp").innerHTML = game.hp;
-  }
-
-  if (game.score > highscore) {
-    highscore = game.score;
-    console.log(highscore);
-    document.getElementById("highscore").innerHTML = highscore;
+    document.getElementById("highscore").innerHTML = game.highscore;
   }
 
   //check for game over
