@@ -6,14 +6,12 @@
 }
 
 span {
-  /* margin-left: 5vh; */
-  margin-right: 25vh;
-}
-
-h1 {
   font-size: 5vh;
 }
 
 h2 {
-  font-size: 4vh;
+  font-size: 3vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

@@ -1,7 +1,6 @@
 let game = new Game();
-let hp = 5;
-let score = 0;
 let playing = false;
+let highscore = 0;
 
 //p5 predef functions
 function preload() {
@@ -49,6 +48,12 @@ function draw() {
     //update score and hp
     document.getElementById("score").innerHTML = game.score;
     document.getElementById("hp").innerHTML = game.hp;
+  }
+
+  if (game.score > highscore) {
+    highscore = game.score;
+    console.log(highscore);
+    document.getElementById("highscore").innerHTML = highscore;
   }
 
   //check for game over
