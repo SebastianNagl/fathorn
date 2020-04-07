@@ -18,14 +18,22 @@ to do:
 
 (+) create moving unicorn
 
-(-) create enemies at random
+(+) basic style page of game
+
+(+) create enemies at random
 
 (-) create goodies
 
-(-) implement score
+(+) implement collision
 
-(-) implement collision and life counter
+(+) implement score
+
+(+) implement life counter
 
 (-) implement game over / restart
 
+(-) implement sound
+
 (-) implement IMA FIRIN MAH LAZOOOOOR
+
+(-) bonus: implement interior crocodile alligator mode

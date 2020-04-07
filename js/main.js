@@ -1,4 +1,7 @@
 let game = new Game();
+let hp = 5;
+let score = 0;
+let playing = true;
 
 //p5 predef functions
 function preload() {
@@ -14,20 +17,33 @@ function setup() {
 }
 
 function draw() {
-  clear();
-  game.display();
+  if (playing) {
+    clear();
 
-  //movement on key presses
-  if (keyIsDown(DOWN_ARROW)) {
-    game.player.y += 5;
-  }
-  if (keyIsDown(UP_ARROW)) {
-    game.player.y -= 5;
-  }
-  if (keyIsDown(LEFT_ARROW)) {
-    game.player.x -= 5;
-  }
-  if (keyIsDown(RIGHT_ARROW)) {
-    game.player.x += 5;
+    //show elements of canvas
+    game.display();
+
+    //movement on key presses
+    if (keyIsDown(DOWN_ARROW)) {
+      game.player.y += 5;
+    }
+    if (keyIsDown(UP_ARROW)) {
+      game.player.y -= 5;
+    }
+    if (keyIsDown(LEFT_ARROW)) {
+      game.player.x -= 5;
+    }
+    if (keyIsDown(RIGHT_ARROW)) {
+      game.player.x += 5;
+    }
+
+    //increase score over time
+    if (frameCount % 50 === 0) {
+      score++;
+    }
+
+    //update score and hp
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("hp").innerHTML = hp;
   }
 }
