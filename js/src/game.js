@@ -5,6 +5,7 @@ class Game {
     this.score = 0;
     this.highscore = 0;
     this.enemies = [];
+    this.drinks = [];
   }
 
   init() {
@@ -12,6 +13,7 @@ class Game {
     this.player = new Player();
     this.enemy = new Enemy();
     this.sound = new Sounds();
+    this.drink = new Drink();
   }
 
   setup() {
@@ -27,6 +29,10 @@ class Game {
 
     if (frameCount % 60 === 0) {
       this.enemies.push(new Enemy());
+    }
+
+    if (frameCount % 1000 === 0) {
+      this.drinks.push(new Drink());
     }
 
     //increase score over time
@@ -55,6 +61,22 @@ class Game {
       }
     };
 
+    //logic for checking good collisions
+    let collect = (enemy) => {
+      if (
+        this.player.x + this.player.width > enemy.x &&
+        this.player.x < enemy.x + enemy.width &&
+        this.player.y + this.player.height > enemy.y &&
+        this.player.y < enemy.y + enemy.height
+      ) {
+        console.log("boom!");
+
+        //logic to only receive 1 hit
+        this.hp++;
+        return true;
+      }
+    };
+
     this.enemies.forEach((enemy) => {
       collide(enemy);
       enemy.display();
@@ -62,6 +84,15 @@ class Game {
 
     this.enemies = this.enemies.filter((enemy) => {
       return !collide(enemy);
+    });
+
+    this.drinks.forEach((drink) => {
+      collect(drink);
+      drink.display();
+    });
+
+    this.drinks = this.drinks.filter((drink) => {
+      return !collect(drink);
     });
   }
 }

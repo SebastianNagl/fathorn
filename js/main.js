@@ -5,9 +5,6 @@ let playing = false;
 function preload() {
   game.init();
   imgN = loadImage("img/fathorn.png");
-  // song = loadSound("sounds/raceway.mp3", function () {
-  //   console.log("loaded music!");
-  // });
 }
 
 function setup() {
