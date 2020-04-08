@@ -22,17 +22,17 @@ to do:
 
 (+) create enemies at random
 
-(-) create goodies
-
 (+) implement collision
 
 (+) implement score
 
 (+) implement life counter
 
-(-) implement game over / restart
+(+) implement game over / restart
 
 (-) implement sound
+
+(-) create goodies
 
 (-) implement IMA FIRIN MAH LAZOOOOOR
 

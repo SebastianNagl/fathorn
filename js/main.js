@@ -1,18 +1,19 @@
 let game = new Game();
 let playing = false;
-let highscore = 0;
 
 //p5 predef functions
 function preload() {
   game.init();
   imgN = loadImage("img/fathorn.png");
+  song = loadSound("../sounds/raceway.mp3", function () {
+    console.log("loaded");
+  });
 }
 
 function setup() {
   //setting up the canvas for the game and adding it to canvas element of html
   let canvas = createCanvas(1024, 576);
   canvas.parent("canvas");
-
   game.setup();
 }
 
@@ -54,12 +55,15 @@ function draw() {
   //check for game over
   if (game.hp <= 0) {
     playing = false;
+    song.stop();
     game.setup();
   }
 }
 
 function keyPressed() {
   if (keyCode === 13) {
+    //music on
+    song.loop();
     playing = true;
   }
 }
