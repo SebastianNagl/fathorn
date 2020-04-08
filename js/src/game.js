@@ -27,7 +27,7 @@ class Game {
     this.background.display();
     this.player.display();
 
-    if (frameCount % 60 === 0) {
+    if (frameCount % 90 === 0) {
       this.enemies.push(new Enemy());
     }
 
