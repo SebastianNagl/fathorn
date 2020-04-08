@@ -11,6 +11,7 @@ class Game {
     this.background = new Background();
     this.player = new Player();
     this.enemy = new Enemy();
+    this.sound = new Sounds();
   }
 
   setup() {

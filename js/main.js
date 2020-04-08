@@ -5,9 +5,9 @@ let playing = false;
 function preload() {
   game.init();
   imgN = loadImage("img/fathorn.png");
-  song = loadSound("sounds/raceway.mp3", function () {
-    console.log("loaded music!");
-  });
+  // song = loadSound("sounds/raceway.mp3", function () {
+  //   console.log("loaded music!");
+  // });
 }
 
 function setup() {
@@ -55,7 +55,7 @@ function draw() {
   //check for game over
   if (game.hp <= 0) {
     playing = false;
-    song.stop();
+    game.sound.togglePlaying();
     game.setup();
   }
 }
@@ -63,7 +63,9 @@ function draw() {
 function keyPressed() {
   if (keyCode === 13) {
     //music on
-    song.loop();
+    if (!game.sound.playing) {
+      game.sound.togglePlaying();
+    }
     //game on
     playing = true;
   }
