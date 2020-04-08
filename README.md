@@ -37,3 +37,5 @@ to do:
 (-) implement IMA FIRIN MAH LAZOOOOOR
 
 (-) bonus: implement interior crocodile alligator mode
+
+Background Music credits go to Wizwars, Song is 8 Bit Raceway
