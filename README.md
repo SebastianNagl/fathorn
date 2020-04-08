@@ -30,9 +30,11 @@ to do:
 
 (+) implement game over / restart
 
-(-) implement sound
+(+) implement background sound
 
 (-) create goodies
+
+(-) create goodie sound
 
 (-) implement IMA FIRIN MAH LAZOOOOOR
 
