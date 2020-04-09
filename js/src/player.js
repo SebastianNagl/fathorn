@@ -2,6 +2,8 @@ class Player {
   constructor() {
     this.img = loadImage("img/avatar.png");
     this.previousP = [];
+    this.imgH = 88;
+    this.imgW = 91;
   }
 
   setup() {
@@ -51,6 +53,6 @@ class Player {
     }
 
     //display player img
-    image(this.img, this.x, this.y, 88, 91);
+    image(this.img, this.x, this.y, this.imgH, this.imgW);
   }
 }
