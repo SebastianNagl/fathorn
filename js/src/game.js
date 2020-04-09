@@ -71,16 +71,15 @@ class Game {
       }
     };
 
+    //display stuff and check collisions
     this.enemies = this.enemies.filter((enemy) => {
       enemy.display();
       return !collide(enemy, "enemy");
     });
-
     this.drinks = this.drinks.filter((drink) => {
       drink.display();
       return !collide(drink, "drink");
     });
-
     this.watches = this.watches.filter((watch) => {
       watch.display();
       return !collide(watch, "watch");
