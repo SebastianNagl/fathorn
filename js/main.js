@@ -37,7 +37,7 @@ function draw() {
       game.player.y -= 8;
     }
     if (keyIsDown(LEFT_ARROW)) {
-      game.player.x -= 8;
+      game.player.x -= 10;
     }
     if (keyIsDown(RIGHT_ARROW)) {
       game.player.x += 8;

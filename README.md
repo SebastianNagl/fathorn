@@ -32,9 +32,11 @@ to do:
 
 (+) implement background sound
 
-(-) create goodies
+(+) create goodies
 
 (+) create goodie sound
+
+(-) add instructions to loading screen
 
 (-) implement IMA FIRIN MAH LAZOOOOOR
 

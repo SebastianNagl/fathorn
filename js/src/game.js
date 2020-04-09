@@ -1,12 +1,7 @@
 class Game {
   constructor() {
-    this.speed = 1;
-    this.hp = 5;
-    this.score = 0;
     this.highscore = 0;
-    this.enemies = [];
-    this.drinks = [];
-    this.watches = [];
+    // this.invict = false;
   }
 
   init() {
@@ -23,6 +18,10 @@ class Game {
     this.score = 0;
     this.hp = 5;
     this.speed = 1;
+    this.enemies = [];
+    this.drinks = [];
+    this.watches = [];
+    this.player.previousP = [];
   }
 
   display() {
@@ -53,6 +52,7 @@ class Game {
 
     //logic for checking collisions
     let collide = (enemy, string) => {
+      // if (this.invict === false) {
       if (
         this.player.x + this.player.width > enemy.x + 30 &&
         this.player.x < enemy.x - 30 + enemy.width &&
@@ -63,16 +63,25 @@ class Game {
           //TO DO: logic to only receive 1 hit
           this.hp--;
           this.sound.toggleEnemy();
+          this.invict = true;
         } else if (string === "drink") {
           this.hp++;
           this.sound.toggleDrink();
+          this.invict = true;
         } else if (string === "watch") {
           this.speed--;
           this.sound.toggleWatch();
+          this.invict = true;
         }
         return true;
       }
+      // }
     };
+
+    // if (this.invict === true) {
+    //   setTimeout(1000);
+    //   this.invict = false;
+    // }
 
     this.enemies.forEach((enemy) => {
       collide(enemy, "enemy");
