@@ -17,13 +17,13 @@ function setup() {
 function draw() {
   //screen when new / game over
   if (!playing) {
-    document.getElementById("game").style.visibility = "hidden";
+    document.getElementById("hp").style.visibility = "hidden";
     image(imgN, 0, 0);
   }
 
   //game on
   if (playing) {
-    document.getElementById("game").style.visibility = "visible";
+    document.getElementById("hp").style.visibility = "visible";
     clear();
 
     //show elements of canvas

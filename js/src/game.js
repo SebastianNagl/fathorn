@@ -6,6 +6,7 @@ class Game {
     this.highscore = 0;
     this.enemies = [];
     this.drinks = [];
+    this.watches = [];
   }
 
   init() {
@@ -14,6 +15,7 @@ class Game {
     this.enemy = new Enemy();
     this.sound = new Sounds();
     this.drink = new Drink();
+    this.watch = new Watch();
   }
 
   setup() {
@@ -35,10 +37,15 @@ class Game {
       this.drinks.push(new Drink());
     }
 
+    if (frameCount % 3000 === 0) {
+      this.watches.push(new Watch());
+    }
+
     //increase score over time
     if ((frameCount % 50) / game.speed ** 2 === 0) {
       this.score += 1 + Math.floor(this.speed);
       this.speed += 0.05;
+      console.log(this.speed);
     }
 
     if (this.score > this.highscore) {
@@ -46,53 +53,51 @@ class Game {
     }
 
     //logic for checking collisions
-    let collide = (enemy) => {
+    let collide = (enemy, string) => {
       if (
-        this.player.x + this.player.width > enemy.x &&
-        this.player.x < enemy.x + enemy.width &&
-        this.player.y + this.player.height > enemy.y &&
-        this.player.y < enemy.y + enemy.height
+        this.player.x + this.player.width > enemy.x + 30 &&
+        this.player.x < enemy.x - 30 + enemy.width &&
+        this.player.y + this.player.height > enemy.y + 30 &&
+        this.player.y < enemy.y - 30 + enemy.height
       ) {
-        console.log("boom!");
-
-        //logic to only receive 1 hit
-        this.hp--;
-        return true;
-      }
-    };
-
-    //logic for checking good collisions
-    let collect = (enemy) => {
-      if (
-        this.player.x + this.player.width > enemy.x &&
-        this.player.x < enemy.x + enemy.width &&
-        this.player.y + this.player.height > enemy.y &&
-        this.player.y < enemy.y + enemy.height
-      ) {
-        console.log("boom!");
-
-        //logic to only receive 1 hit
-        this.hp++;
+        if (string === "enemy") {
+          //TO DO: logic to only receive 1 hit
+          this.hp--;
+        } else if (string === "drink") {
+          this.hp++;
+        } else if (string === "watch") {
+          this.speed--;
+          console.log("picked up watch");
+        }
         return true;
       }
     };
 
     this.enemies.forEach((enemy) => {
-      collide(enemy);
+      collide(enemy, "enemy");
       enemy.display();
     });
 
     this.enemies = this.enemies.filter((enemy) => {
-      return !collide(enemy);
+      return !collide(enemy, "enemy");
     });
 
     this.drinks.forEach((drink) => {
-      collect(drink);
+      collide(drink, "drink");
       drink.display();
     });
 
     this.drinks = this.drinks.filter((drink) => {
-      return !collect(drink);
+      return !collide(drink, "drink");
+    });
+
+    this.watches.forEach((watch) => {
+      collide(watch, "watch");
+      watch.display();
+    });
+
+    this.watches = this.watches.filter((watch) => {
+      return !collide(watch, "watch");
     });
   }
 }
