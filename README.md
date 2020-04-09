@@ -6,6 +6,7 @@ This is the game for Ironhack Game Challenge, calling it Fathorn TM
 to do:
 (+) add instructions to loading screen
 (-) bonus: implement IMA FIRIN MAH LAZOOOOOR
+(-) fix watch bug
 
 - Background Music credits go to Wizwars, Song is 8 Bit Raceway
 - Sounds by Zapsplat

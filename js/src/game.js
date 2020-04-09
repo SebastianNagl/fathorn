@@ -41,7 +41,7 @@ class Game {
       this.drinks.push(new Drink());
     }
 
-    if (frameCount % 3500 === 0) {
+    if (frameCount % 5000 === 0) {
       this.watches.push(new Watch());
     }
 
@@ -70,7 +70,7 @@ class Game {
           this.hp++;
           this.sound.toggleDrink();
         } else if (string === "watch") {
-          this.speed -= 2;
+          this.speed = 3;
           this.sound.toggleWatch();
         } else if (string === "cake") {
           this.score += 50;
@@ -98,5 +98,12 @@ class Game {
       enemy.display();
       return !collide(enemy, "enemy");
     });
+
+    //remove unnecessary enemies from arr
+    if (this.enemies.length > 10) {
+      this.enemies.splice(0, 1);
+    }
+
+    console.log(this.speed);
   }
 }
