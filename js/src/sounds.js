@@ -5,6 +5,7 @@ class Sounds {
     this.drink = loadSound("sounds/drink.mp3");
     this.watch = loadSound("sounds/watch.mp3");
     this.enemy = loadSound("sounds/enemy.mp3");
+    this.cake = loadSound("sounds/cake.mp3");
   }
 
   togglePlaying() {
@@ -27,5 +28,9 @@ class Sounds {
 
   toggleEnemy() {
     this.enemy.play();
+  }
+
+  toggleCake() {
+    this.cake.play();
   }
 }

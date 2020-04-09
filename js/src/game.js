@@ -10,6 +10,7 @@ class Game {
     this.sound = new Sounds();
     this.drink = new Drink();
     this.watch = new Watch();
+    this.cake = new Cake();
   }
 
   setup() {
@@ -20,6 +21,7 @@ class Game {
     this.enemies = [];
     this.drinks = [];
     this.watches = [];
+    this.cakes = [];
     this.player.previousP = [];
   }
 
@@ -27,15 +29,19 @@ class Game {
     this.background.display();
     this.player.display();
 
-    if (frameCount % 90 === 0) {
+    if (frameCount % 80 === 0) {
       this.enemies.push(new Enemy());
     }
 
-    if (frameCount % 1000 === 0) {
+    if (frameCount % 100 === 0) {
+      this.cakes.push(new Cake());
+    }
+
+    if (frameCount % 2000 === 0) {
       this.drinks.push(new Drink());
     }
 
-    if (frameCount % 3000 === 0) {
+    if (frameCount % 3500 === 0) {
       this.watches.push(new Watch());
     }
 
@@ -52,10 +58,10 @@ class Game {
     //logic for checking collisions
     let collide = (enemy, string) => {
       if (
-        this.player.x + this.player.width > enemy.x + 30 &&
-        this.player.x < enemy.x - 30 + enemy.width &&
-        this.player.y + this.player.height > enemy.y + 30 &&
-        this.player.y < enemy.y - 30 + enemy.height
+        this.player.x + this.player.width > enemy.x + 25 &&
+        this.player.x < enemy.x - 25 + enemy.width &&
+        this.player.y + this.player.height > enemy.y + 25 &&
+        this.player.y < enemy.y - 25 + enemy.height
       ) {
         if (string === "enemy") {
           this.hp--;
@@ -64,17 +70,21 @@ class Game {
           this.hp++;
           this.sound.toggleDrink();
         } else if (string === "watch") {
-          this.speed--;
+          this.speed -= 2;
           this.sound.toggleWatch();
+        } else if (string === "cake") {
+          this.score += 50;
+          this.sound.toggleCake();
         }
         return true;
       }
     };
 
     //display stuff and check collisions
-    this.enemies = this.enemies.filter((enemy) => {
-      enemy.display();
-      return !collide(enemy, "enemy");
+
+    this.cakes = this.cakes.filter((cake) => {
+      cake.display();
+      return !collide(cake, "cake");
     });
     this.drinks = this.drinks.filter((drink) => {
       drink.display();
@@ -83,6 +93,10 @@ class Game {
     this.watches = this.watches.filter((watch) => {
       watch.display();
       return !collide(watch, "watch");
+    });
+    this.enemies = this.enemies.filter((enemy) => {
+      enemy.display();
+      return !collide(enemy, "enemy");
     });
   }
 }
