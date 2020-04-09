@@ -34,10 +34,11 @@ to do:
 
 (-) create goodies
 
-(-) create goodie sound
+(+) create goodie sound
 
 (-) implement IMA FIRIN MAH LAZOOOOOR
 
 (-) bonus: implement interior crocodile alligator mode
 
-Background Music credits go to Wizwars, Song is 8 Bit Raceway
+- Background Music credits go to Wizwars, Song is 8 Bit Raceway
+- Sounds by Zapsplat

@@ -45,7 +45,6 @@ class Game {
     if ((frameCount % 50) / game.speed ** 2 === 0) {
       this.score += 1 + Math.floor(this.speed);
       this.speed += 0.05;
-      console.log(this.speed);
     }
 
     if (this.score > this.highscore) {
@@ -63,11 +62,13 @@ class Game {
         if (string === "enemy") {
           //TO DO: logic to only receive 1 hit
           this.hp--;
+          this.sound.toggleEnemy();
         } else if (string === "drink") {
           this.hp++;
+          this.sound.toggleDrink();
         } else if (string === "watch") {
           this.speed--;
-          console.log("picked up watch");
+          this.sound.toggleWatch();
         }
         return true;
       }
