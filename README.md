@@ -4,7 +4,7 @@ This is the game for Ironhack Game Challenge, calling it Fathorn TM
 - unicorn will collect cupcakes and martinis to increase score and hp
 
 to do:
-(-) add instructions to loading screen
+(+) add instructions to loading screen
 (-) bonus: implement IMA FIRIN MAH LAZOOOOOR
 
 - Background Music credits go to Wizwars, Song is 8 Bit Raceway
