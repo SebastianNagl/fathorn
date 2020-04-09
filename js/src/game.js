@@ -1,7 +1,6 @@
 class Game {
   constructor() {
     this.highscore = 0;
-    // this.invict = false;
   }
 
   init() {
@@ -52,7 +51,6 @@ class Game {
 
     //logic for checking collisions
     let collide = (enemy, string) => {
-      // if (this.invict === false) {
       if (
         this.player.x + this.player.width > enemy.x + 30 &&
         this.player.x < enemy.x - 30 + enemy.width &&
@@ -60,53 +58,31 @@ class Game {
         this.player.y < enemy.y - 30 + enemy.height
       ) {
         if (string === "enemy") {
-          //TO DO: logic to only receive 1 hit
           this.hp--;
           this.sound.toggleEnemy();
-          this.invict = true;
         } else if (string === "drink") {
           this.hp++;
           this.sound.toggleDrink();
-          this.invict = true;
         } else if (string === "watch") {
           this.speed--;
           this.sound.toggleWatch();
-          this.invict = true;
         }
         return true;
       }
-      // }
     };
 
-    // if (this.invict === true) {
-    //   setTimeout(1000);
-    //   this.invict = false;
-    // }
-
-    this.enemies.forEach((enemy) => {
-      collide(enemy, "enemy");
-      enemy.display();
-    });
-
     this.enemies = this.enemies.filter((enemy) => {
+      enemy.display();
       return !collide(enemy, "enemy");
     });
 
-    this.drinks.forEach((drink) => {
-      collide(drink, "drink");
-      drink.display();
-    });
-
     this.drinks = this.drinks.filter((drink) => {
+      drink.display();
       return !collide(drink, "drink");
     });
 
-    this.watches.forEach((watch) => {
-      collide(watch, "watch");
-      watch.display();
-    });
-
     this.watches = this.watches.filter((watch) => {
+      watch.display();
       return !collide(watch, "watch");
     });
   }
